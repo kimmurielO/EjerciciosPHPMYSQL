@@ -13,7 +13,7 @@
 	<?php
 		$ruta="img/"; // Indicar ruta
 		if (isset($_FILES['archivo']) && $_FILES['archivo']['size'] > 0) {
-			$tamanyomax = 2000000; // Indicar tamaño en bytes
+			$tamanyomax = 20000000; // Indicar tamaño en bytes
 			$nombretemp = $_FILES['archivo']['tmp_name'];
 			$nombrearchivo = $_FILES['archivo']['name'];
 			$tamanyoarchivo = $_FILES['archivo']['size'];
