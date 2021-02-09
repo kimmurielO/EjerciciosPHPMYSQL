@@ -41,21 +41,25 @@
 				echo "<p>Datos <b>no</b> agregados.</p>";
 			}
 
-			echo "[ <a href='javascript:history.back()>Volver</a> ] - [ <a href='$_SERVER[PHP_SELF]'> Introducir
-				nueva fila</a>]";
+			echo "[ <a href='javascript:history.back()'>Volver</a> ] - [ <a href='$_SERVER[PHP_SELF]'> Introducir nueva fila</a>]";
+
+			$sql2 = "SELECT Categoria FROM direcciones";
+			$resultado2 = mysqli_query($dp, $sql2);
+			$campocat = "";
+
+			while ($row = mysqli_fetch_assoc($resultado2)) {
+				$cat = $row['Categoria'];
+				$campocat.= "<option value='$cat'> $cat </option>";
+			}
 		}
 		else {
 			$sql2 = "SELECT Categoria FROM direcciones";
 			$resultado2 = mysqli_query($dp, $sql2);
 			$campocat = "";
-			if($resultado2 == false){
-				echo "FALLO";
-			}
-			else{
-				while ($row = mysqli_fetch_assoc($resultado2)) {
-					$cat = $row['Categoria'];
-					$campocat.= "<option value='$cat'> $cat </option>";
-				}
+
+			while ($row = mysqli_fetch_assoc($resultado2)) {
+				$cat = $row['Categoria'];
+				$campocat.= "<option value='$cat'> $cat </option>";
 			}
 			//echo <<<formulario. porque el manual dice que va aqui?
 		}
