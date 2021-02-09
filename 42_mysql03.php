@@ -51,6 +51,7 @@
 				$cat = $row['Categoria'];
 				$campocat.= "<option value='$cat'> $cat </option>";
 			}
+
 		}
 		else {
 			$sql2 = "SELECT Categoria FROM direcciones";
